@@ -87,8 +87,8 @@ def GetItemNum():   # 모든 항목의 수를 얻어온다.
 
 ### 기타 함수
 def GetDocument(startNum, endNum):  # 해당 범위 내의 자료를 얻어온다. (startNum ~ endNum)
-    startNum = int(startNum)
-    endNum = int(endNum)
+    startNum = str(startNum)
+    endNum = str(endNum)
    
     conn = http.client.HTTPConnection("openAPI.seoul.go.kr:8088")
     conn.request("GET", "/6b4f54647867696c3932474d68794c/xml/GeoInfoLibrary/"+startNum+"/"+endNum)
@@ -109,7 +109,7 @@ def checkDocument():
         return False
     return True
 
-def Search():
+def main():
     s = input("검색하고자 하는 지역을 입력하세요(구 또는 동): ")
     SearchData(s)  
 
