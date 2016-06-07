@@ -6,6 +6,7 @@
 import ListGoodFoodService
 import ListMarketInfoServer
 import GeoInfoLibrary
+import SendMail
 import SearchCulturalFacilitiesDetailService
 
 loopFlag = -1
@@ -16,6 +17,7 @@ def PrintMenu():
     print(" 2. 안심/모범 음식점 검색")
     print(" 3. 마트 검색")
     print(" 4. 문화공간 검색")
+    print(" 5. 메일 보내기(테스트)")
     print(" 9. 프로그램 종료")
 
 
@@ -29,6 +31,8 @@ def SelectMenu(SelectKey):
         ListMarketInfoServer.main()
     elif SelectKey == '4':
         SearchCulturalFacilitiesDetailService.main()
+    elif SelectKey == '5':
+        SendMail.main()
     elif SelectKey == '9':
         global loopFlag
         loopFlag = 0
