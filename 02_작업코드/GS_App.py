@@ -184,13 +184,27 @@ def SendEmailButtonAction():
     SendMailTest(InputEmailAdressLabel.get())
 
 def SendMailTest(mailaddress): 
-     text = "테스트 메일입니다." 
+     text = "[서울시 근린시설 APP에서 요청한 검색 결과입니다.]\n\n"
+     for i in range(len(DataList)):
+        text += "["
+        text += str(i+1) 
+        text += "] "
+        text += "시설명: "
+        text += DataList[i][0]
+        text += "\n"
+        text += "주소: "
+        text += DataList[i][1]
+        text += "\n"
+        text += "연락처: "
+        text += DataList[i][2]
+        text += "\n\n"
+        
      msg = MIMEText(text) 
      senderAddr = "pythonmailer2016@gmail.com" 
      recipientAddr = mailaddress 
       
-     msg['Subject'] = "테스트 메일" 
-     msg['From'] = senderAddr 
+     msg['Subject'] = "서울시 근린시설 APP에서 요청한 검색 결과" 
+     msg['From'] = "서울시 근린시설 검색 APP" 
      msg['To'] = recipientAddr 
       
      global mailer 
